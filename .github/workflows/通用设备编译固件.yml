@@ -18,6 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - immortalwrt-mt798x
           - Lienol-master
       
 env:
@@ -73,10 +74,14 @@ jobs:
               REPO_URL="https://github.com/coolsnowwolf/lede"
               REPO_BRANCH="master"
               TAGS_NAME="lede"
-          elif [[ "${{ inputs.source_branch }}" == *"immortalwrt"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"immortalwrt-master"* ]]; then
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"immortalwrt-mt798x"* ]]; then
+              REPO_URL="https://github.com/hanwckf/immortalwrt-mt798x"
+              REPO_BRANCH="openwrt-21.02"
+              TAGS_NAME="immortalwrt"    
           elif [[ "${{ inputs.source_branch }}" == *"Lienol"* ]]; then
               REPO_URL="https://github.com/Lienol/openwrt"
               REPO_BRANCH="22.03"
@@ -189,7 +194,6 @@ jobs:
           keep_minimum_runs: 3
           token: ${{ secrets.GH_TOKEN }}
           body: |
-
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
             - Default username: root
@@ -200,4 +204,4 @@ jobs:
             - Login to OpenWrt → System → Amlogic Service → Install OpenWrt
             ### OpenWrt Image Verification
             - sha256sum
-    
+            
