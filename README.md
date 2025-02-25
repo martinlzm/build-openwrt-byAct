@@ -1,4 +1,14 @@
+# 对于云编译OpenWrt的修改
+本repo fork自：https://github.com/xinlingduyu/build-openwrt 
+目前有如下修改：
+ 1. 加入了新的源码库： https://github.com/hanwckf/immortalwrt-mt798x
+ 2. 修复了diy-part2.sh的小bug.
 
+目前已对通用设备编译固件脚本的如下库成功完成编译:
+ 1. lede (qualcommax-ipq60xx-jdcloud_re-ss-01)
+ 2. immortalwrt-mt798x (mediatek-mt7981-cmcc_rax3000m)
+
+-----
 # 云编译OpenWrt
 
 在线云编译，是github推出的一项服务，它提供了高性能的虚拟服务器环境，基于它可以进行构建、测试、打包、部署项目。利用它可以省去本地搭建或者购买服务器的时间成本，你只需要使用本仓库的代码，按照下方的使用方法，修改一些参数，即可开始编译openwrt，等待几个小时后，你就可以下载固件了。
